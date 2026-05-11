@@ -1,33 +1,33 @@
 # Day 1 — LeetCode 1768: Merge Strings Alternately
 
-Today I practiced the problem:
+## Problem
+Solved **LeetCode 1768 — Merge Strings Alternately**
 
-**LeetCode 1768 — Merge Strings Alternately**
-LeetCode 1768: Merge Strings Alternately
+### Problem Statement
+Given two strings `word1` and `word2`, merge them by adding letters in alternating order starting with `word1`.
 
-## What I Learned
+If one string is longer than the other, append the remaining characters at the end.
 
-### Problem Understanding
+---
 
-* Merge two strings by taking characters alternately.
-* If one string becomes empty, append the remaining characters of the other string.
-
-Example:
+# Example
 
 ```text
+Input:
 word1 = "abc"
 word2 = "pqr"
 
-Output = "apbqcr"
+Output:
+"apbqcr"
 ```
 
 ---
 
-# Key Concepts Practiced
+# What I Learned Today
 
 ## 1. String Traversal Using Indexes
 
-Learned how to traverse multiple strings simultaneously using:
+Learned how to traverse two strings simultaneously using indexes.
 
 ```java
 i++;
@@ -36,21 +36,25 @@ j++;
 
 ---
 
-## 2. While Loop Conditions
+## 2. Proper While Loop Conditions
 
-Improved understanding of:
+Understood the correct way to write loop conditions.
 
+### Incorrect
+```java
+while(word1.length() != null)
+```
+
+### Correct
 ```java
 while(i < word1.length() && j < word2.length())
 ```
-
-instead of incorrect null checks.
 
 ---
 
 ## 3. Difference Between `char` and `String`
 
-Understood that:
+Learned that:
 
 ```java
 word1.charAt(i)
@@ -62,38 +66,36 @@ returns a `char`, not a `String`.
 
 ## 4. Using `StringBuilder`
 
-Learned why `StringBuilder` is preferred for string construction in Java:
-
-* Efficient
-* Cleaner code
-* Better performance
-
-Example:
+Practiced using `StringBuilder` for efficient string manipulation.
 
 ```java
 StringBuilder result = new StringBuilder();
 ```
 
+### Why use `StringBuilder`?
+- Better performance
+- Cleaner implementation
+- Memory efficient
+
 ---
 
 ## 5. Handling Edge Cases
 
-Practiced handling:
-
-* Equal length strings
-* Unequal length strings
-* Remaining characters after traversal
+Learned to handle:
+- Equal length strings
+- Unequal length strings
+- Remaining characters after traversal
 
 ---
 
 # Mistakes I Identified
 
-* Incorrect null comparison with `length()`
-* Type mismatch (`char` vs `String`)
-* Missing leftover character handling
-* Incorrect output using `Arrays.toString()`
+- Incorrect null comparison with `length()`
+- Type mismatch (`char` vs `String`)
+- Missing leftover character handling
+- Incorrect output formatting using `Arrays.toString()`
 
-These debugging mistakes helped me understand Java implementation details better.
+These mistakes helped improve my Java fundamentals and debugging skills.
 
 ---
 
@@ -130,28 +132,31 @@ class Solution {
 
 ---
 
-# Time Complexity
+# Complexity Analysis
 
+## Time Complexity
 ```text
 O(n + m)
 ```
 
-# Space Complexity
-
+## Space Complexity
 ```text
 O(n + m)
 ```
+
+Where:
+- `n` = length of `word1`
+- `m` = length of `word2`
 
 ---
 
-# Takeaway
+# Key Takeaway
 
-Today’s learning improved my:
+Today’s practice improved my:
+- Java fundamentals
+- String manipulation skills
+- Debugging ability
+- Edge-case handling
+- Confidence in solving Easy-level DSA problems
 
-* Java fundamentals
-* String manipulation skills
-* Debugging ability
-* Edge-case handling
-* Confidence in solving Easy-level DSA problems
-
-Step by step improving consistency in DSA and problem solving 🚀
+Consistent practice leads to improvement 🚀
