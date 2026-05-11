@@ -34,11 +34,11 @@ The goal of this repository is to maintain consistency, improve problem-solving 
 
 - Arrays
 - Strings
+- HashMap
 - Linked Lists
 - Stack
 - Queue
 - Recursion
-- Backtracking
 - Binary Search
 - Sliding Window
 - Trees
@@ -47,10 +47,6 @@ The goal of this repository is to maintain consistency, improve problem-solving 
 - Heap / Priority Queue
 - Dynamic Programming
 - Greedy Algorithms
-- Trie
-- Bit Manipulation
-- Hashing
-
 ---
 
 ## 🎯 Goals
