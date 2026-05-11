@@ -1,0 +1,157 @@
+# Day 1 — LeetCode 1768: Merge Strings Alternately
+
+Today I practiced the problem:
+
+**LeetCode 1768 — Merge Strings Alternately**
+LeetCode 1768: Merge Strings Alternately
+
+## What I Learned
+
+### Problem Understanding
+
+* Merge two strings by taking characters alternately.
+* If one string becomes empty, append the remaining characters of the other string.
+
+Example:
+
+```text
+word1 = "abc"
+word2 = "pqr"
+
+Output = "apbqcr"
+```
+
+---
+
+# Key Concepts Practiced
+
+## 1. String Traversal Using Indexes
+
+Learned how to traverse multiple strings simultaneously using:
+
+```java
+i++;
+j++;
+```
+
+---
+
+## 2. While Loop Conditions
+
+Improved understanding of:
+
+```java
+while(i < word1.length() && j < word2.length())
+```
+
+instead of incorrect null checks.
+
+---
+
+## 3. Difference Between `char` and `String`
+
+Understood that:
+
+```java
+word1.charAt(i)
+```
+
+returns a `char`, not a `String`.
+
+---
+
+## 4. Using `StringBuilder`
+
+Learned why `StringBuilder` is preferred for string construction in Java:
+
+* Efficient
+* Cleaner code
+* Better performance
+
+Example:
+
+```java
+StringBuilder result = new StringBuilder();
+```
+
+---
+
+## 5. Handling Edge Cases
+
+Practiced handling:
+
+* Equal length strings
+* Unequal length strings
+* Remaining characters after traversal
+
+---
+
+# Mistakes I Identified
+
+* Incorrect null comparison with `length()`
+* Type mismatch (`char` vs `String`)
+* Missing leftover character handling
+* Incorrect output using `Arrays.toString()`
+
+These debugging mistakes helped me understand Java implementation details better.
+
+---
+
+# Final Optimized Solution
+
+```java
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+
+        int i = 0, j = 0;
+        StringBuilder result = new StringBuilder();
+
+        while(i < word1.length() && j < word2.length()) {
+            result.append(word1.charAt(i));
+            result.append(word2.charAt(j));
+            i++;
+            j++;
+        }
+
+        while(i < word1.length()) {
+            result.append(word1.charAt(i));
+            i++;
+        }
+
+        while(j < word2.length()) {
+            result.append(word2.charAt(j));
+            j++;
+        }
+
+        return result.toString();
+    }
+}
+```
+
+---
+
+# Time Complexity
+
+```text
+O(n + m)
+```
+
+# Space Complexity
+
+```text
+O(n + m)
+```
+
+---
+
+# Takeaway
+
+Today’s learning improved my:
+
+* Java fundamentals
+* String manipulation skills
+* Debugging ability
+* Edge-case handling
+* Confidence in solving Easy-level DSA problems
+
+Step by step improving consistency in DSA and problem solving 🚀
