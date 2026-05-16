@@ -1,0 +1,341 @@
+# 151. Reverse Words in a String
+
+## Problem Statement
+
+Given an input string `s`, reverse the order of the words.
+
+A word is defined as a sequence of non-space characters. The words in `s` will be separated by at least one space.
+
+Return a string of the words in reverse order concatenated by a single space.
+
+### Note
+- `s` may contain leading or trailing spaces.
+- There may be multiple spaces between words.
+- The returned string should contain only a single space between words.
+- Do not include extra spaces.
+
+---
+
+## Examples
+
+### Example 1
+
+```text
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+```
+
+---
+
+### Example 2
+
+```text
+Input: s = "  hello world  "
+Output: "world hello"
+```
+
+Explanation:
+
+```text
+The reversed string should not contain leading or trailing spaces.
+```
+
+---
+
+### Example 3
+
+```text
+Input: s = "a good   example"
+Output: "example good a"
+```
+
+Explanation:
+
+```text
+Multiple spaces between words should be reduced to a single space.
+```
+
+---
+
+## Constraints
+
+```text
+1 <= s.length <= 10^4
+```
+
+- `s` contains English letters, digits, and spaces `' '`.
+- There is at least one word in `s`.
+
+---
+
+# Intuition
+
+The main challenge is handling:
+
+- Leading spaces
+- Trailing spaces
+- Multiple spaces between words
+
+A simple approach is:
+
+1. Remove extra spaces using `trim()`
+2. Split words using regex `"\\s+"`
+3. Traverse from the end
+4. Build the reversed sentence
+
+---
+
+# Approach
+
+## Step 1: Remove Extra Spaces
+
+```java
+s.trim()
+```
+
+Removes leading and trailing spaces.
+
+---
+
+## Step 2: Split Words
+
+```java
+split("\\s+")
+```
+
+### Meaning of `\\s+`
+
+- `\\s` → whitespace character
+- `+` → one or more occurrences
+
+This ensures multiple spaces are treated as a single separator.
+
+---
+
+## Step 3: Reverse Traversal
+
+Traverse the words array from last index to first.
+
+---
+
+## Step 4: Build Answer
+
+Use `StringBuilder` for efficient string concatenation.
+
+---
+
+# Java Solution
+
+```java
+class Solution {
+
+    public String reverseWords(String s) {
+
+        // Remove leading/trailing spaces
+        // Split by one or more spaces
+        String[] words = s.trim().split("\\s+");
+
+        StringBuilder result = new StringBuilder();
+
+        // Traverse from end to beginning
+        for (int i = words.length - 1; i >= 0; i--) {
+
+            result.append(words[i]);
+
+            // Add space between words
+            if (i != 0) {
+                result.append(" ");
+            }
+        }
+
+        return result.toString();
+    }
+}
+```
+
+---
+
+# Dry Run
+
+## Input
+
+```text
+s = "a good   example"
+```
+
+---
+
+## After trim and split
+
+```text
+["a", "good", "example"]
+```
+
+---
+
+## Traversal
+
+| i | Word      | Result              |
+|---|------------|---------------------|
+| 2 | example    | "example"           |
+| 1 | good       | "example good"      |
+| 0 | a          | "example good a"    |
+
+---
+
+## Final Output
+
+```text
+"example good a"
+```
+
+---
+
+# Complexity Analysis
+
+## Time Complexity
+
+```text
+O(n)
+```
+
+### Reason
+
+- `trim()` → O(n)
+- `split()` → O(n)
+- Reverse traversal → O(n)
+
+Overall:
+
+```text
+O(n)
+```
+
+---
+
+## Space Complexity
+
+```text
+O(n)
+```
+
+### Reason
+
+- Array created by `split()`
+
+---
+
+# Follow-Up: In-Place O(1) Space Solution
+
+If the string is mutable, we can solve it in-place.
+
+## Idea
+
+1. Reverse the entire string
+2. Reverse each word individually
+3. Remove extra spaces
+
+---
+
+## Example
+
+### Original
+
+```text
+"the sky is blue"
+```
+
+### Reverse Entire String
+
+```text
+"eulb si yks eht"
+```
+
+### Reverse Each Word
+
+```text
+"blue is sky the"
+```
+
+---
+
+# Key Interview Points
+
+## Important Concepts
+
+- String manipulation
+- Regex splitting
+- Efficient concatenation using `StringBuilder`
+- Handling edge cases with spaces
+
+---
+
+## Common Edge Cases
+
+### Leading spaces
+
+```text
+"   hello"
+```
+
+### Trailing spaces
+
+```text
+"hello   "
+```
+
+### Multiple spaces
+
+```text
+"a   b   c"
+```
+
+### Single word
+
+```text
+"hello"
+```
+
+---
+
+# Alternative One-Liner Solution
+
+```java
+class Solution {
+    public String reverseWords(String s) {
+
+        String[] words = s.trim().split("\\s+");
+
+        Collections.reverse(Arrays.asList(words));
+
+        return String.join(" ", words);
+    }
+}
+```
+
+---
+
+# Summary
+
+## Optimal Simple Solution
+
+- Use `trim()`
+- Use `split("\\s+")`
+- Reverse traversal using `StringBuilder`
+
+### Complexity
+
+| Complexity | Value |
+|---|---|
+| Time | O(n) |
+| Space | O(n) |
+
+---
+
+# Tags
+
+```text
+String
+Two Pointers
+Stack
+```
